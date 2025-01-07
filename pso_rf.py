@@ -80,10 +80,7 @@ class PSO:
         print("Initial particles")
         self.show_particles()
 
-        for particle in self.particles:
-            if particle.best_value < self.global_best_value:
-                self.global_best_position = np.copy(particle.best_position)
-                self.global_best_value = particle.best_value
+        self._update_global_best()
     
     def _update_global_best(self):
         for particle in self.particles:
